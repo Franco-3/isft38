@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Inscripcion;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +52,11 @@ Route::group([], __DIR__ . '/contacto.php');
 
 Auth::routes();
 
+Route::resource('mail', MailController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('mail', MailController::class);
+Route::resource('inscripcion', Inscripcion::class);
+//Route::get('/inscripcion', function () { return view('backend/formulario/index');});
+Route::get('/inscripcion/mail', [App\Http\Controllers\MailController::class, 'index'])->name('index');
+
+
